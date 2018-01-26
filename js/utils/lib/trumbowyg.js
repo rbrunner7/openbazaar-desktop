@@ -7,7 +7,8 @@ export const editorOptions = {
   btns: [
     ['undo', 'redo'],
     ['formatting'],
-    ['strong', 'em', 'del'],
+    ['bold', 'italic'],
+    ['link'],
     ['insertImage'],
     ['unorderedList', 'orderedList'],
     ['horizontalRule'],
