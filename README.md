@@ -41,6 +41,12 @@ This client uses Babel to compile [ES6 JavaScript](https://github.com/lukehoban/
 
 `npm run test:watch` will execute the tests on any file changes.
 
+### ENOSPC Errors
+
+When developing on Linux, if you see an npm ENOSPC error in your console, you may have exceeded the maximum allowed number of simultaneous watches. You can correct this by running the following commands:
+
+`echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p`
+`sysctl --system`
 
 ## Built With
 
