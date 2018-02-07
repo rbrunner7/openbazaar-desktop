@@ -63,14 +63,10 @@ export default class extends baseVw {
   }
 
   save() {
-    /* if the user isn't already a moderator, the status is true, and the confirmation checkboxes
-     aren't checked, show an error */
-
     const confirmChecked = this.$understandRequirements.prop('checked') &&
       this.$acceptGuidelines.prop('checked');
 
-    if (!this.profile.get('moderator') &&
-    this.$('input[name=moderator]:checked').val() === 'true' && !confirmChecked) {
+    if (this.$('input[name=moderator]:checked').val() === 'true' && !confirmChecked) {
       this.$moderationConfirmError.removeClass('hide');
       return;
     }
