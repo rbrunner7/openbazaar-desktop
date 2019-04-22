@@ -257,6 +257,10 @@ export function formatCurrency(amount, currency, options) {
 
   let formattedCurrency;
   const cryptoCur = getWalletCurByCode(cur);
+  let maxCryptoDecimals = 8;
+  if (cryptoCur) {
+    maxCryptoDecimals = cryptoCur.baseUnit.toString().length - 1;
+  }
 
   // If we don't recognize the currency, we'll assume it's a crypto
   // listing cur.
@@ -267,7 +271,7 @@ export function formatCurrency(amount, currency, options) {
     opts.minDisplayDecimals = typeof opts.minDisplayDecimals === 'number' ?
       opts.minDisplayDecimals : 0;
     opts.maxDisplayDecimals = typeof opts.maxDisplayDecimals === 'number' ?
-      opts.maxDisplayDecimals : 8;
+      opts.maxDisplayDecimals : maxCryptoDecimals;
   } else {
     opts.minDisplayDecimals = typeof opts.minDisplayDecimals === 'number' ?
       opts.minDisplayDecimals : 2;

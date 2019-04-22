@@ -115,7 +115,7 @@
   .sendReceiveContainer {
     // So there's no jump when toggling between send / receive mode. If the larger
     // size changes, this may need to be updated.
-    min-height: 320px;
+    min-height: 335px; // @@@ 320px;
 
     .receiveMoney {
       text-align: center;
@@ -130,7 +130,7 @@
       .receiveQrCodeWrap {
         // needed so space is allocated when the qr code is not displayed
         // during fetching
-        height: 208px;
+        height: 223px; // @@@ 208px;
       }
 
       .copyTextWrap {

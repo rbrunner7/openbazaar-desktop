@@ -122,6 +122,32 @@ const currencies = [
     supportsEscrowTimeout: false,
     blockTime: 1000 * 60 * 2.5,
   },
+  {
+    code: 'XMR',
+    testnetCode: 'TXMR',
+    baseUnit: 1000000000000,
+    averageModeratedTransactionSize: 2000,
+    // feeBumpTransactionSize: 154,
+    qrCodeText: address => `monero:${address}`,
+    icon: 'imgs/cryptoIcons/XMR.png',
+    url: 'https://getmonero.org',
+    getBlockChainAddressUrl: (address, isTestnet) => (
+      isTestnet ?
+         // It's impossible to lookup addresses on the Monero blockchain: No addresses
+         // in the clear at all appear there. Not a big problem for this client as it seems
+         // currently this only gets used for disputed cases.
+        `https://no-addresses-on-monero-blockchain.com/${address}` :
+        `https://no-addresses-on-monero-blockchain.com/${address}`
+    ),
+    getBlockChainTxUrl: (txid, isTestnet) => (
+      isTestnet ?
+         // Assume testnet to be Stagenet
+        `https://community.xmr.to/explorer/stagenet/tx/${txid}` :
+        `https://community.xmr.to/explorer/mainnet/tx/${txid}`
+    ),
+    supportsEscrowTimeout: false,
+    blockTime: 1000 * 60 * 2,
+  },
 ];
 
 export default currencies;
